@@ -1,0 +1,12 @@
+<h1 class=" padding text-center ">Peters Planes</h1>
+<p ng-hide="planes ">Loading</p>
+<div class="table-bordered input-group " ng-submit="searchPlane() ">
+    <input type="text " class="width form-control " ng-model="searchWord " placeholder="Search Plane Name ">
+    <span class="input-group-btn ">
+    <button class=" btn btn-success " type="button ">Search</button>
+  </span>
+</div>
+<div class="text-center " ng-repeat="plane in planes | filter: searchWord track by $index ">
+    <h3>{{ plane.model }}</h3>
+    <a class="btn btn-info btn-sm " ng-href="/plane/{{ plane._id }} ">Details</a>
+</div>
