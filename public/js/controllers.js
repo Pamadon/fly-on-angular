@@ -23,7 +23,7 @@ angular.module("FlyApp")
         }
     }])
     .controller("DetailCtrl", ['$scope', '$stateParams', 'Planes', "$location", function($scope, $stateParams, Planes, $location) {
-        $scope.title = ""
+
         $scope.plane = {};
 
         Planes.getPlane($stateParams.id).then(function success(res) {
@@ -37,7 +37,6 @@ angular.module("FlyApp")
         $scope.updatePlane = function() {
 
             Planes.updatePlane($scope.plane).then(function success(res) {
-
                 $location.path('/plane/' + $scope.plane._id);
             }, function error(err) {
 
